@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4gg2vn570ymq"]
+
+[ext_resource type="Script" path="res://Camera3D.gd" id="1_umo3n"]
+[ext_resource type="Environment" uid="uid://dete2wtejfes3" path="res://node_3d.tres" id="1_xjn0o"]
+[ext_resource type="PackedScene" uid="uid://cd44583nydc7v" path="res://portal.tscn" id="2_kqrvk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3kp84"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.65006)
+environment = ExtResource( "1_xjn0o" )
+current = true
+script = ExtResource( "1_umo3n" )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+mesh = SubResource( "BoxMesh_3kp84" )
+skeleton = NodePath("../..")
+
+[node name="Node3D" parent="." instance=ExtResource( "2_kqrvk" )]
+transform = Transform3D(0.897258, 0, -0.441506, 0, 1, 0, 0.441506, 0, 0.897258, 0, 0, -9.31025)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8615, 0, -4.45504)
+mesh = SubResource( "BoxMesh_3kp84" )
