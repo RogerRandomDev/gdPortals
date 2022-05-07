@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4gg2vn570ymq"]
+[gd_scene load_steps=6 format=3 uid="uid://d4gg2vn570ymq"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_umo3n"]
 [ext_resource type="Environment" uid="uid://dete2wtejfes3" path="res://node_3d.tres" id="1_xjn0o"]
 [ext_resource type="PackedScene" uid="uid://cd44583nydc7v" path="res://portal.tscn" id="2_kqrvk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3kp84"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bufup"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -18,20 +20,24 @@ script = ExtResource( "1_umo3n" )
 mesh = SubResource( "BoxMesh_3kp84" )
 skeleton = NodePath("../..")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Camera3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/StaticBody3D"]
+shape = SubResource( "BoxShape3D_bufup" )
+
 [node name="Node3D" parent="." instance=ExtResource( "2_kqrvk" )]
-transform = Transform3D(0.680107, 0, 0.733113, 0, 1, 0, -0.733113, 0, 0.680107, -2.46985, 0, 0)
+transform = Transform3D(0.82094, 0, 0.571015, 0, 1, 0, -0.571015, 0, 0.82094, -1.18974, 0, 0)
 connectedPortal = NodePath("../Node3D2")
 
-[node name="Node3D2" parent="." instance=ExtResource( "2_kqrvk" )]
-transform = Transform3D(0.914847, 0, -0.403801, 0, 1, 0, 0.403801, 0, 0.914847, 1.55297, 0, 0)
-connectedPortal = NodePath("../Node3D")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99833, 0, 3.81643)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36367, 0, 1.99914)
 mesh = SubResource( "BoxMesh_3kp84" )
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6939, 0.348459, 3.81643)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83047, 0, 2.05705)
 mesh = SubResource( "BoxMesh_3kp84" )
-skeleton = NodePath("../..")
+
+[node name="Node3D2" parent="." instance=ExtResource( "2_kqrvk" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20994, 0, 0)
+connectedPortal = NodePath("../Node3D")
