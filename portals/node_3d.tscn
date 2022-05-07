@@ -19,8 +19,19 @@ mesh = SubResource( "BoxMesh_3kp84" )
 skeleton = NodePath("../..")
 
 [node name="Node3D" parent="." instance=ExtResource( "2_kqrvk" )]
-transform = Transform3D(0.897258, 0, -0.441506, 0, 1, 0, 0.441506, 0, 0.897258, 0, 0, -9.31025)
+transform = Transform3D(0.680107, 0, 0.733113, 0, 1, 0, -0.733113, 0, 0.680107, -2.46985, 0, 0)
+connectedPortal = NodePath("../Node3D2")
+
+[node name="Node3D2" parent="." instance=ExtResource( "2_kqrvk" )]
+transform = Transform3D(0.914847, 0, -0.403801, 0, 1, 0, 0.403801, 0, 0.914847, 1.55297, 0, 0)
+connectedPortal = NodePath("../Node3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99833, 0, 3.81643)
+mesh = SubResource( "BoxMesh_3kp84" )
+skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8615, 0, -4.45504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6939, 0.348459, 3.81643)
 mesh = SubResource( "BoxMesh_3kp84" )
+skeleton = NodePath("../..")

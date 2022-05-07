@@ -1,0 +1,10 @@
+0b7126e0c6e86d3ec295a72f5aa6e0bd
+::res://::1651878026
+Camera3D.gd::GDScript::-1::1651877875::0::1::::<>Camera3D<>::
+global.gd::GDScript::-1::1651874402::0::1::::<>Node<>::
+icon.png::CompressedTexture2D::9132111588834574484::1651874402::1651875028::1::::<><>::
+node_3d.tres::Environment::7479532872424024072::1651874443::0::1::::<><>::
+node_3d.tscn::PackedScene::9207538425978278608::1651877885::0::1::::<><>::res://Camera3D.gd<>uid://dete2wtejfes3<>uid://cd44583nydc7v
+portal.gd::GDScript::-1::1651877841::0::1::::<>Node3D<>::
+portal.gdshader::Shader::-1::1651877887::0::1::::<><>::
+portal.tscn::PackedScene::5045090996923339413::1651877865::0::1::::<><>::res://portal.gd<>uid://dete2wtejfes3

@@ -1,26 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd44583nydc7v"]
+[gd_scene load_steps=7 format=3 uid="uid://cd44583nydc7v"]
 
 [ext_resource type="Script" path="res://portal.gd" id="1_fm5ms"]
 [ext_resource type="Environment" uid="uid://dete2wtejfes3" path="res://node_3d.tres" id="2_tdhv8"]
+[ext_resource type="Shader" path="res://portal.gdshader" id="3_2gpdd"]
+[ext_resource type="Texture2D" uid="uid://d3dwsqpu66ljo" path="res://icon.png" id="4_f465i"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_jd3si"]
-size = Vector3(1, 10, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8y0ni"]
+render_priority = 0
+shader = ExtResource( "3_2gpdd" )
+shader_param/TEXTURE = ExtResource( "4_f465i" )
+
+[sub_resource type="QuadMesh" id="QuadMesh_4nmop"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource( "1_fm5ms" )
 
 [node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1024, 600)
 size_2d_override = Vector2i(512, 512)
 render_target_update_mode = 4
 
 [node name="Node3D" type="Node3D" parent="SubViewport"]
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+rotation_order = 0
 environment = ExtResource( "2_tdhv8" )
+projection = 2
 current = true
-near = 0.001
+near = 1.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D/Camera3D"]
-mesh = SubResource( "BoxMesh_jd3si" )
-
-[node name="MeshInstance3D" type="Sprite3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource( "ShaderMaterial_8y0ni" )
+cast_shadow = 0
+mesh = SubResource( "QuadMesh_4nmop" )
